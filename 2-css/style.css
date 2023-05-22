@@ -1,0 +1,178 @@
+/* Promjena obitelji fonta na web stranici, zadani i vanjski fontovi (Google Fonts) */
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Promjena veličine fonta na web stranici */
+div {
+    font-size: 30px;
+    /* em, rem, %, small, medium, large */
+}
+
+/* Promjena prozirnosti elemenata */
+div {
+    opacity: 0.5;
+    /* 0 (proziran) do 1 */
+}
+
+/* CSS predprocesor */
+
+/* Pisanje varijabla u predprocesor */
+/*
+$color1: #eee;
+$color2: #333;
+$font1: Tahoma, sans-serif;
+
+body {
+  background-color: $color1;
+  color: $color2;
+  font-family: $font1;
+}
+*/
+
+/* Pseudo klase */
+/* Targetira sve <a> elemente, na koje je korisnik već kliknuo (odnosno korisnik ih je posjetio) */
+a:visited {
+    color: #999;
+}
+
+/* Targetira sve <a> elemente, i primjenjuje pravila kada korisnik PRIJEĐE MIŠEM preko poveznica */
+a:hover {
+    color: #F93;
+    text-decoration: underline;
+    cursor: help;
+}
+
+/* Targetira sve <input> elemente kada su u FOKUSU (kliknuli smo unutar input fielda) */
+input:focus {
+    color: white;
+    background-color: #F0F;
+}
+
+/*  Targetira sve <a> elemente, i primjenjuje pravila kada je poveznica AKTIVA. Poveznica je AKTIVNA kada
+            korisnik klikne na nju (kod testa, klikni i drži kliknuto jer nestane brzo) */
+a:active {
+    color: aqua;
+}
+
+/* Pronađi sve PARAGRAFE <p> koji su PRVO DIJETE bilo kojeg elementa */
+p:first-child {
+    text-decoration: underline wavy red;
+}
+
+/* Pronađi sve PARAGRAFE <p> koji su ZADNJE DIJETE bilo kojeg elementa */
+p:last-child {
+    font-size: 14px;
+    color: pink;
+}
+
+/* Pronađi svaki paragraf koji je DRUGO (2) dijete bilo kojeg roditelja (elementa) */
+p:nth-child(2) {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Traži sve PRVE elemente koji su TIPA (type) PARAGRAF (<p>) - čim ga pronađe, primijeni pravilo! */
+p:first-of-type {
+    font-weight: bold;
+    color: #645394;
+}
+
+/* Traži sve ZADNJE elemente koji su TIPA (type) PARAGRAF (<p>) - čim ga pronađe, primijeni pravilo! */
+p:last-of-type {
+    text-transform: uppercase;
+}
+
+/* Traži svaki drugi PARAGRAF <p> u njegovom roditelju. */
+p:nth-of-type(2) {
+    color: darkred;
+}
+
+/* Pseudo elementi */
+a::after {
+    content: ' 🔗';
+}
+
+a::before {
+    content: '➡️ ';
+}
+
+p::first-letter {
+    font-size: 75px;
+    color: gold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p::first-line {
+    color: red;
+}
+
+p::selection {
+    color: greenyellow;
+}
+
+/* Selektori */
+
+/* Kontekstualni selektori - kombinatori */
+/* Descendant selector (selektor sa "razmakom") */
+article p {
+    color: red;
+}
+
+/* Child selector (selektor sa ">") - "pronađi" sve elemente SECTION kojemu je dijete DIV 
+        kojemu je dijete PARAGRAF i primijeni pravilo */
+section>div>p {
+    text-decoration: line-through solid red;
+}
+
+/* Adjacent sibling selector (selektor sa "+") - pronađi sve PARAGRAFE koji su prvi izravni elementi
+        od H1 oznaka i na njih (paragrafe) primijeni navedena pravila.
+        */
+h1+p {
+    font-weight: bold;
+    color: blue;
+}
+
+/* Selektori atributa */
+/* Targetiramo sve elemente koji imaju TITLE kao atribut */
+[title] {
+    text-decoration: underline solid red;
+}
+
+/* Targetiramo sve TITLE atribute sa TOČNO OVOM VRIJEDNOSTI (prvi odlomak) */
+[title="prvi odlomak"] {
+    font-weight: bold;
+}
+
+/* Targetira sve TITLE atribute, koji u sebi kao vrijednost BILO GDJE imaju riječ "odlomak" */
+[title*="odlomak"] {
+    color: green;
+}
+
+
+/* Targetira sve TITLE atribute, koji u sebi imaju kao vrijednost riječ "ODLOMAK" koja je odvojena RAZMAKOM */
+[title~="odlomak"] {
+    text-transform: uppercase;
+}
+
+/* Targetira sve TITLE atribute, koji u sebi imaju kao vrijednost riječ "ODLOMAK" na prvom mjestu - započinju
+        s riječi "ODLOMAK" */
+[title^="odlomak"] {
+    font-style: italic;
+}
+
+/* Targetira sve TITLE atribute, koji u sebi imaju kao vrijednost riječ "ODLOMAK", ali riječ "odlomak" je odvojena
+        sa povlakom (-). Samo povlaka, underscore (_) ne radi! */
+[title|="odlomak"] {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Targetira sve TITLE atribute, koji kao vrijednost imaju na kraju (završetku) riječ "ODLOMAK" */
+[title$="odlomak"] {
+    color: darkblue;
+}
